@@ -12,19 +12,24 @@ jobs:
       - node/install
       - checkout
       # install dependencies in both apps
-      - run:
-          name: Frontend install
-          command: |
-            npm run frontend:install
-      - run: 
-          name: Backend install
-          command: |
-            npm run backend:install
-      - run:
-          name: Frontend build
-          command: |
-            npm run frontend:build
-      - run:
-          name: Backend build
-          command: |
-            npm run backend:build
+      - commands:
+          install-server-deps:
+            description: "Installing server dependencies"
+            steps:
+              - run: cd reactnd-contacts-server
+              - run: npm install
+          install-ui-deps:
+            description: "Installing UI dependencies"
+            steps:
+              - run: cd reactnd-contacts-complete
+              - run: npm install
+          build-server:
+            description: "Build server"
+            steps:
+              - run: cd reactnd-contacts-server
+              - run: npm run build
+          build-ui:
+            description: "Build server"
+            steps:
+              - run: cd reactnd-contacts-complete
+              - run: npm run build
