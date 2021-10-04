@@ -12,7 +12,7 @@ jobs:
       - node/install
       - checkout
       - run:
-          name: Front-End Install
+          name: Front-End Installation
           command: |
             npm run frontend:install
       - run:
