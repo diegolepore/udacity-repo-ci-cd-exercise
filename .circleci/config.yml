@@ -23,8 +23,8 @@ jobs:
       - run:
           name: Frontend build
           command: |
-            cd reactnd-contacts-complete && npm run build
+            npm run frontend:build
       - run:
           name: Backend build
           command: |
-            cd reactnd-contacts-server && npm run build
+            npm run backend:build
